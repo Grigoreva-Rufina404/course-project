@@ -9,4 +9,4 @@
 
 ## Сборка и запуск
 g++ main.cpp ivanov.cpp petrov.cpp sidorova.cpp -o app
-./app
+./apptest

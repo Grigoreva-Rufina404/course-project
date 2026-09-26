@@ -12,4 +12,5 @@ public:
 	~Item();
 
 	void Inspect();
+	void Use();
 };

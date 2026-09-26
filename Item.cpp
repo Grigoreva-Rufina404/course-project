@@ -15,3 +15,8 @@ void Item::Inspect() {
 	std::cout << "Item: " << name << '\n';
 	std::cout << "Damage: " << damage << '\n';
 }
+
+void Item::Use() {
+	std::cout << "You used the subject:" << name << '\n';
+	std::cout << "Damage has been caused:" << damage << '\n';
+}

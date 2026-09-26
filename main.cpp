@@ -7,6 +7,7 @@ int main() {
 	Item sword("Rusty sword", 5);
 
 	sword.Inspect();
+	sword.Use();
 
 	return 0;
 }

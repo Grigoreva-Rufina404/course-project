@@ -4,7 +4,7 @@
 #include "Item.hpp"
 
 int main() {
-	Item sword("Rusty sword", 5);
+	Item sword("Rusty sword", -98);
 
 	sword.Inspect();
 	sword.Use();

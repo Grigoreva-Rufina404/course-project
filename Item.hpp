@@ -4,8 +4,8 @@
 
 class Item {
 private:
-	std::string name;
-	int damage;
+	std::string m_name;
+	int m_damage;
 
 public:
 	Item(std::string name, int damage);

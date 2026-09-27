@@ -3,27 +3,15 @@
 
 #include "Item.hpp"
 #include "Inventory.hpp"
+#include "Player.hpp"
 
 int main() {
-	Item sword("Rusty sword", 5);
-	Item potion("Regeneration potion", 0);
+	Player player("Ivan", 100);
+	player.TakeDamage(50);
+	player.Heal(30);
 
-	Inventory inventory;
-
-	inventory.AddItem(sword);
-	inventory.AddItem(potion);
-
-	inventory.ShowInventory();
-
-	inventory.RemoveItem();
-
-	inventory.ShowInventory();
-
-	inventory.RemoveItem();
-
-	inventory.ShowInventory();
-
-	inventory.RemoveItem();
+	player.TakeDamage(130);
+	player.Heal(120);
 
 	return 0;
 }

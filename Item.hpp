@@ -9,6 +9,7 @@ private:
 
 public:
 	Item(std::string name, int damage);
+	Item();
 	~Item();
 
 	void Inspect();

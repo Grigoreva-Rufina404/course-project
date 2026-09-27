@@ -4,11 +4,12 @@
 
 class Inventory {
 private:
-	Item* m_items[2]{};
+	Item** m_items;
 	int m_count{ 0 };
+	int m_capacity;
 
 public:
-	Inventory();
+	Inventory(int capacity);
 	~Inventory();
 
 	void AddItem(Item& item);

@@ -1,16 +1,21 @@
 #include <iostream>
 #include "Inventory.hpp"
 
-Inventory::Inventory() {
+Inventory::Inventory(int capacity) {
+	m_capacity = capacity;
+	m_count = 0;
+	m_items = new Item * [capacity] {};
+
 	std::cout << "Inventory created\n";
 }
 
 Inventory::~Inventory() {
 	std::cout << "The inventory is destroyed\n";
+	delete[] m_items;
 }
 
 void Inventory::AddItem(Item& item) {
-	if (m_count >= 2) {
+	if (m_count >= m_capacity) {
 		std::cout << "The inventory is full.\n";
 	}
 	else {

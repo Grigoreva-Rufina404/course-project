@@ -1,11 +1,12 @@
 #include "Player.hpp"
 #include <iostream>
 
-Player::Player(std::string name, int health)
+Player::Player(std::string name, int health, int inventory)
 	: m_name{ name }
 	, m_health{ health }
+	, m_inventory {inventory}
 {
-	std::cout << "The player has been created.\n";
+	std::cout << "The player has been created: " << m_name << '\n';
 
 	if (health < 0) {
 		std::cout << "ERROR: The player’s health cannot be less than zero. Health is set to 0.\n";
@@ -18,7 +19,7 @@ Player::Player(std::string name, int health)
 }
 
 Player::~Player() {
-	std::cout << "The player has been removed.\n";
+	std::cout << "The player has been removed: " << m_name << '\n';
 }
 
 void Player::TakeDamage(int damage) {
@@ -43,4 +44,12 @@ void Player::Heal(int heal) {
 	}
 
 	std::cout << "Player health: " << m_health << '\n';
+}
+
+void Player::AddItem(Item& item) {
+	m_inventory.AddItem(item);
+}
+
+void Player::ShowInventory() {
+	m_inventory.ShowInventory();
 }

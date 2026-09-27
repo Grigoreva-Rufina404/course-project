@@ -6,12 +6,17 @@
 #include "Player.hpp"
 
 int main() {
-	Player player("Ivan", 100);
-	player.TakeDamage(50);
-	player.Heal(30);
+	Inventory inventory(3);
+	Item sword("f", 4);
+	Item item("g", 0);
+	Item it("k", 7);
+	Item itemitem("l", 9);
 
-	player.TakeDamage(130);
-	player.Heal(120);
+	inventory.AddItem(sword);
+	inventory.AddItem(item);
+	inventory.AddItem(it);
+	inventory.AddItem(itemitem);
 
+	sword.Inspect();
 	return 0;
 }

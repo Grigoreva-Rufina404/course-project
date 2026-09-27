@@ -6,15 +6,24 @@
 
 int main() {
 	Item sword("Rusty sword", 5);
-	Item potion_r("Regeneration potion", 0);
+	Item potion("Regeneration potion", 0);
 
 	Inventory inventory;
 
 	inventory.AddItem(sword);
-	inventory.AddItem(potion_r);
+	inventory.AddItem(potion);
 
-	Item potion_s("Potion of strength", 0);
-	inventory.AddItem(potion_s);
+	inventory.ShowInventory();
+
+	inventory.RemoveItem();
+
+	inventory.ShowInventory();
+
+	inventory.RemoveItem();
+
+	inventory.ShowInventory();
+
+	inventory.RemoveItem();
 
 	return 0;
 }

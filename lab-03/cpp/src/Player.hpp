@@ -1,10 +1,13 @@
 #pragma once
 
+#include "Inventory.hpp"
+#include "Item.hpp"
+
+#include <memory>
 #include <string>
 
-#include "Inventory.hpp"
-
-class Player {
+class Player
+{
 private:
     std::string m_name;
     int m_health;
@@ -15,8 +18,7 @@ public:
     ~Player();
 
     void TakeDamage(int damage);
-    void Heal(int amount);
-
+    void Heal(int heal);
     void AddItem(const std::shared_ptr<Item>& item);
     void ShowInventory() const;
 };

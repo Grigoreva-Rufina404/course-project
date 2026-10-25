@@ -1,48 +1,66 @@
 #include "Player.hpp"
 
-#include <algorithm>
 #include <iostream>
-#include <stdexcept>
 #include <utility>
 
 Player::Player(std::string name, int health, int inventoryCapacity)
     : m_name{ std::move(name) }
-    , m_health{ std::clamp(health, 0, 100) }
+    , m_health{ health }
     , m_inventory{ inventoryCapacity }
 {
-    std::cout << "Player created: " << m_name << '\n';
+    std::cout << "The player has been created: " << m_name << '\n';
+
+    if (health < 0)
+    {
+        std::cout << "ERROR: The player's health cannot be less than zero. Health is set to 0.\n";
+        m_health = 0;
+    }
+    if (health > 100)
+    {
+        std::cout << "ERROR: The player's health cannot exceed 100. Health is set to 100.\n";
+        m_health = 100;
+    }
 }
 
-Player::~Player() {
-    std::cout << "Player destroyed: " << m_name << '\n';
+Player::~Player()
+{
+    std::cout << "The player has been removed: " << m_name << '\n';
 }
 
-void Player::TakeDamage(int damage) {
-    if (damage < 0) {
-        throw std::invalid_argument("Damage cannot be negative");
+void Player::TakeDamage(int damage)
+{
+    m_health = m_health - damage;
+
+    std::cout << "The player has taken damage: " << damage << '\n';
+
+    if (m_health < 0)
+    {
+        m_health = 0;
     }
 
-    m_health = std::max(0, m_health - damage);
-
-    std::cout << "Player took damage: " << damage << '\n';
     std::cout << "Player health: " << m_health << '\n';
 }
 
-void Player::Heal(int amount) {
-    if (amount < 0) {
-        throw std::invalid_argument("Healing amount cannot be negative");
+void Player::Heal(int heal)
+{
+    m_health = m_health + heal;
+
+    std::cout << "The player has taken heal: " << heal << '\n';
+
+    if (m_health > 100)
+    {
+        m_health = 100;
     }
 
-    m_health = std::min(100, m_health + amount);
-
-    std::cout << "Player healed: " << amount << '\n';
     std::cout << "Player health: " << m_health << '\n';
 }
 
-void Player::AddItem(const std::shared_ptr<Item>& item) {
+void Player::AddItem(const std::shared_ptr<Item>& item)
+{
     m_inventory.AddItem(item);
 }
 
-void Player::ShowInventory() const {
+void Player::ShowInventory() const
+{
     m_inventory.ShowInventory();
 }

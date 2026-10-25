@@ -52,6 +52,18 @@ public class Inventory implements AutoCloseable {
         }
     }
 
+    @Override
+    public String toString() {
+        if (closed) {
+            return "Инвентарь (закрыт)";
+        }
+        StringBuilder sb = new StringBuilder("Инвентарь (" + count + "/" + items.length + ")");
+        for (int i = 0; i < count; i++) {
+            sb.append(i == 0 ? ": " : ", ").append(items[i]);
+        }
+        return sb.toString();
+    }
+
     private void checkOpen() {
         if (closed) {
             throw new IllegalStateException("Инвентарь уже закрыт");

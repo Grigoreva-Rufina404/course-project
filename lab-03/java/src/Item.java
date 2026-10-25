@@ -29,4 +29,9 @@ public class Item {
     public void use() {
         System.out.println("Использован предмет: " + name);
     }
+
+    @Override
+    public String toString() {
+        return name + " (урон " + damage + ")";
+    }
 }

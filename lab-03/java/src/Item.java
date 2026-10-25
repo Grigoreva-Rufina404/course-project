@@ -6,12 +6,16 @@ public class Item {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Название предмета не может быть пустым");
         }
-        if (damage < 0) {
-            throw new IllegalArgumentException("Урон не может быть отрицательным");
-        }
 
         this.name = name;
-        this.damage = damage;
+
+        // Как в ЛР 2: сообщаем об ошибке и подставляем значение по умолчанию.
+        if (damage < 0) {
+            System.out.println("ERROR: урон не может быть отрицательным. Урон установлен в 0.");
+            this.damage = 0;
+        } else {
+            this.damage = damage;
+        }
     }
 
     public String getName() {
@@ -27,7 +31,7 @@ public class Item {
     }
 
     public void use() {
-        System.out.println("Использован предмет: " + name);
+        System.out.println("Использован предмет: " + name + ", нанесён урон: " + damage);
     }
 
     @Override

@@ -7,14 +7,23 @@ public class Player implements AutoCloseable {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Имя игрока не может быть пустым");
         }
-        if (health < 0 || health > 100) {
-            throw new IllegalArgumentException("Здоровье должно быть от 0 до 100");
-        }
 
         this.name = name;
         this.health = health;
         // Композиция: игрок сам создаёт инвентарь и не отдаёт его наружу.
         this.inventory = new Inventory(inventoryCapacity);
+
+        System.out.println("Игрок создан: " + name);
+
+        // Как в ЛР 2: сообщаем об ошибке и приводим значение к допустимому.
+        if (health < 0) {
+            System.out.println("ERROR: здоровье не может быть меньше нуля. Здоровье установлено в 0.");
+            this.health = 0;
+        }
+        if (health > 100) {
+            System.out.println("ERROR: здоровье не может превышать 100. Здоровье установлено в 100.");
+            this.health = 100;
+        }
     }
 
     public String getName() {
@@ -26,21 +35,27 @@ public class Player implements AutoCloseable {
     }
 
     public void takeDamage(int damage) {
-        if (damage < 0) {
-            throw new IllegalArgumentException("Урон не может быть отрицательным");
+        health = health - damage;
+
+        System.out.println(name + " получил урон: " + damage);
+
+        if (health < 0) {
+            health = 0;
         }
 
-        health = Math.max(0, health - damage);
-        System.out.println(name + " получил урон. Здоровье: " + health);
+        System.out.println("Здоровье игрока: " + health);
     }
 
     public void heal(int amount) {
-        if (amount < 0) {
-            throw new IllegalArgumentException("Лечение не может быть отрицательным");
+        health = health + amount;
+
+        System.out.println(name + " получил лечение: " + amount);
+
+        if (health > 100) {
+            health = 100;
         }
 
-        health = Math.min(100, health + amount);
-        System.out.println(name + " восстановил здоровье. Здоровье: " + health);
+        System.out.println("Здоровье игрока: " + health);
     }
 
     public void addItem(Item item) {

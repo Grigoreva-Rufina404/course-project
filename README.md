@@ -8,5 +8,23 @@
 Предоставить пользователю развлекательное игровое приложение, позволяющее проходить сюжетную игру с выполнением заданий, исследованием игрового мира, взаимодействием с персонажами, сражениями и принятием решений, влияющих на развитие событий. Программа предназначена для пользователей, заинтересованных в сюжетных ролевых играх.
 
 ## Сборка и запуск
-g++ main.cpp ivanov.cpp petrov.cpp sidorova.cpp -o app
-./apptest
+
+### Java (ЛР №3, часть 1)
+
+Для сборки необходим JDK 17 или новее.
+
+```bash
+cd lab-03/java/src
+javac -encoding UTF-8 Item.java Inventory.java Player.java Main.java
+java Main
+```
+
+### C++ (ЛР №3, часть 2)
+
+Для сборки необходим компилятор g++ с поддержкой C++17.
+
+```bash
+cd lab-03/cpp/src
+g++ -std=c++17 -Wall -Wextra -Wpedantic Item.cpp Inventory.cpp Player.cpp main.cpp -o lab03_cpp.exe
+./lab03_cpp.exe
+```

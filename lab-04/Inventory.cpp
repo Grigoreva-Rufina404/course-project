@@ -4,6 +4,7 @@
 
 #include "Inventory.hpp"
 
+// Конструктор инвентаря
 Inventory::Inventory(int capacity)
     : m_capacity{ capacity } {
     if (capacity <= 0) {
@@ -15,10 +16,12 @@ Inventory::Inventory(int capacity)
     std::cout << "Inventory created\n";
 }
 
+// Деструктор
 Inventory::~Inventory() {
     std::cout << "The inventory is destroyed\n";
 }
 
+// Добавляет предмет в инвентарь
 void Inventory::AddItem(const std::shared_ptr<BaseItem>& item) {
     if (!item) {
         std::cout << "Cannot add an empty item reference.\n";
@@ -36,7 +39,8 @@ void Inventory::AddItem(const std::shared_ptr<BaseItem>& item) {
     }
 }
 
-void Inventory::RemoveItem(){
+// Удаляет последний предмет из инвентаря
+void Inventory::RemoveItem() {
     if (m_count > 0) {
         m_items[m_count - 1].reset();
         m_count--;
@@ -48,11 +52,11 @@ void Inventory::RemoveItem(){
     }
 }
 
+// Выводит описание каждого предмета
 void Inventory::ShowInventory() const {
     for (int i = 0; i < m_count; i++) {
-        // Перед использованием проверяем, жив ли предмет.
         if (const auto item = m_items[i].lock()) {
-            item->Inspect();
+            std::cout << item->Describe() << '\n';
         }
         else {
             std::cout << "Item is no longer available.\n";

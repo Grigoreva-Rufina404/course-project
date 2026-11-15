@@ -13,6 +13,7 @@ enum class EffectType {
 
 std::string EffectTypeToString(EffectType type);
 
+// Класс расходуемого предмета
 class Consumable : public BaseItem {
 private:
 	int m_effect;
@@ -24,9 +25,11 @@ public:
 
 	~Consumable() override;
 
+	// Реализация использования и описания расходуемого предмета
 	void Use() const override;
-	void Inspect() const override;
+	std::string Describe() const override;
 
+	// Создаёт копию текущего объекта Consumable
 	std::unique_ptr<BaseItem> Clone() const override;
 };
 

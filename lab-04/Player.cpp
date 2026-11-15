@@ -3,6 +3,7 @@
 
 #include "Player.hpp"
 
+// Конструктор персонажа
 Player::Player(std::string name, int health, int inventoryCapacity)
     : m_name{ std::move(name) }
     , m_health{ health }
@@ -19,10 +20,12 @@ Player::Player(std::string name, int health, int inventoryCapacity)
     }
 }
 
+// Деструктор
 Player::~Player() {
     std::cout << "The player has been removed: " << m_name << '\n';
 }
 
+// Уменьшает здоровье персонажа
 void Player::TakeDamage(int damage) {
     m_health = m_health - damage;
 
@@ -35,6 +38,7 @@ void Player::TakeDamage(int damage) {
     std::cout << "Player health: " << m_health << '\n';
 }
 
+// Восстанавливает здоровье персонажа
 void Player::Heal(int heal){
     m_health = m_health + heal;
 
@@ -47,10 +51,12 @@ void Player::Heal(int heal){
     std::cout << "Player health: " << m_health << '\n';
 }
 
+// Передаёт предмет инвентарю для добавления
 void Player::AddItem(const std::shared_ptr<BaseItem>& item){
     m_inventory.AddItem(item);
 }
 
+// Передаёт инвентарю команду вывести его содержимое
 void Player::ShowInventory() const{
     m_inventory.ShowInventory();
 }

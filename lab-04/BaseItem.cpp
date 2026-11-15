@@ -15,6 +15,12 @@ BaseItem::BaseItem()
     std::cout << "The object created: " << m_name << '\n';
 }
 
+// Возвращает текстовое описание предмета
+std::string BaseItem::Describe() const {
+	return "Item: " + m_name;
+}
+
+// Виртуальный деструктор базового класса
 BaseItem::~BaseItem() {
 	std::cout << "The object is destroyed: " << m_name << '\n';
 }

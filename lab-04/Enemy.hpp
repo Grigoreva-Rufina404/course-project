@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include <memory>
 
@@ -9,7 +10,6 @@ struct EnemyStats {
 };
 
 class Enemy {
-
 private:
 	std::string m_name;
 	int m_health;
@@ -17,7 +17,16 @@ private:
 
 public:
 	Enemy(std::string name, int health, const std::shared_ptr<EnemyStats> &stats);
-	Enemy(const Enemy& other);
 	Enemy();
+	// Копирование
+	Enemy(const Enemy& other);
+	Enemy& operator = (const Enemy& other);
+	// Перемещение
+	Enemy(Enemy&& other) noexcept = default;
+	Enemy& operator=(Enemy&& other) noexcept = default;
+
+	void SetDamage(int damage);
+	int GetDamage() const;
+
 	~Enemy();
 };

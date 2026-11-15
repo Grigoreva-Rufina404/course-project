@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+
 #include "QuestItem.hpp"
 
 QuestItem::QuestItem(std::string name) : BaseItem(std::move(name)) {
@@ -20,4 +21,8 @@ void QuestItem::Use() const {
 
 void QuestItem::Inspect() const {
 	std::cout << "Quest item: " << m_name << '\n';
+}
+
+std::unique_ptr<BaseItem> QuestItem::Clone() const {
+	return std::make_unique<QuestItem>(*this);
 }

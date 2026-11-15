@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+
 #include "Consumable.hpp"
 
 std::string EffectTypeToString(EffectType type) {
@@ -20,6 +21,11 @@ std::string EffectTypeToString(EffectType type) {
 
 Consumable::Consumable(std::string name, int effect, EffectType type) : BaseItem(std::move(name)), m_effect{ effect }, m_type{ type } {
 	std::cout << "The consumable created: " << m_name << '\n';
+
+	if (effect < 0) {
+		std::cout << "ERROR: Effect cannot be negative. Effect is set to 0 by default." << '\n';
+		m_effect = 0;
+	}
 }
 
 Consumable::Consumable() : BaseItem(), m_effect{ 0 }, m_type{ EffectType::HealthRestoration	} {
@@ -39,4 +45,8 @@ void Consumable::Inspect() const {
 	std::cout << "Consumable: " << m_name << '\n';
 	std::cout << "Type of effect: " << EffectTypeToString(m_type) << '\n';
 	std::cout << "Effect: " <<	m_effect << '\n';
+}
+
+std::unique_ptr<BaseItem> Consumable::Clone() const {
+	return std::make_unique<Consumable>(*this);
 }

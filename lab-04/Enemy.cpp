@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+
 #include "Enemy.hpp"
 
 Enemy::Enemy(std::string name, int health, const std::shared_ptr<EnemyStats>& stats)
@@ -22,6 +23,28 @@ Enemy::Enemy(const Enemy& other)
 	, m_health{ other.m_health }
 	, m_stats{ std::make_shared<EnemyStats>(*other.m_stats)} {
 	std::cout << "The enemy copied: " << m_name << '\n';
+}
+
+Enemy& Enemy :: operator = (const Enemy& other) {
+	if (this == &other) {
+		return *this;
+	}
+
+	m_name = other.m_name;
+	m_health = other.m_health;
+	m_stats = std::make_shared<EnemyStats>(*other.m_stats);
+
+	std::cout << "The enemy assigned: " << m_name << '\n';
+
+	return *this;
+}
+
+void Enemy::SetDamage(int damage){
+	m_stats->damage = damage;
+}
+
+int Enemy::GetDamage() const{
+	return m_stats->damage;
 }
 
 Enemy::~Enemy(){

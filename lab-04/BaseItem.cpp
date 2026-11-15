@@ -1,18 +1,17 @@
-#include "BaseItem.hpp"
 #include <iostream>
 #include <utility>
 
+#include "BaseItem.hpp"
+
 // Конструктор с параметрами
 BaseItem::BaseItem(std::string name)
-	: m_name{ std::move(name) }
-{
+	: m_name{ std::move(name) } {
 	std::cout << "The object created: " << m_name << '\n';
 }
 
 // Конструктор по умолчанию
 BaseItem::BaseItem()
-    : m_name{ "Default object" }
-{
+    : m_name{ "Default object" } {
     std::cout << "The object created: " << m_name << '\n';
 }
 

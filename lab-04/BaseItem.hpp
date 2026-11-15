@@ -8,7 +8,7 @@ protected:
 public:
 	BaseItem(std::string name);
 	BaseItem();
-	virtual ~BaseItem() = default;
+	virtual ~BaseItem();
 
 	virtual void Use() const = 0;
 	virtual void Inspect() const = 0;

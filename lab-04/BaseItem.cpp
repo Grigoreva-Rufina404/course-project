@@ -16,3 +16,6 @@ BaseItem::BaseItem()
     std::cout << "The object created: " << m_name << '\n';
 }
 
+BaseItem::~BaseItem() {
+	std::cout << "The object is destroyed: " << m_name << '\n';
+}

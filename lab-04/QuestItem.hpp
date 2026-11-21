@@ -4,7 +4,7 @@
 
 #include "BaseItem.hpp"
 
-// Класс сюжетного предмета
+// РљР»Р°СЃСЃ СЃСЋР¶РµС‚РЅРѕРіРѕ РїСЂРµРґРјРµС‚Р°
 class QuestItem final: public BaseItem {
 public:
 	QuestItem(std::string name);
@@ -12,9 +12,9 @@ public:
 
 	~QuestItem() override;
 
-	// Реализация использования сюжетного предмета
+	// Р РµР°Р»РёР·Р°С†РёСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃСЋР¶РµС‚РЅРѕРіРѕ РїСЂРµРґРјРµС‚Р°
 	void Use() const override;
 
-	// Создаёт копию текущего объекта QuestItem
+	// РЎРѕР·РґР°С‘С‚ РєРѕРїРёСЋ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° QuestItem
 	std::unique_ptr<BaseItem> Clone() const override;
 };

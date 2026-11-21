@@ -3,7 +3,7 @@
 
 #include "Consumable.hpp"
 
-// Преобразует тип эффекта в строку для вывода пользователю
+// РџСЂРµРѕР±СЂР°Р·СѓРµС‚ С‚РёРї СЌС„С„РµРєС‚Р° РІ СЃС‚СЂРѕРєСѓ РґР»СЏ РІС‹РІРѕРґР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ
 std::string EffectTypeToString(EffectType type) {
 	switch (type) {
 	case EffectType::HealthRestoration:
@@ -19,7 +19,7 @@ std::string EffectTypeToString(EffectType type) {
 	}
 }
 
-// Конструктор с параметрами
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Consumable::Consumable(std::string name, int effect, EffectType type) : BaseItem(std::move(name)), m_effect{ effect }, m_type{ type } {
 	std::cout << "The consumable created: " << m_name << '\n';
 
@@ -29,30 +29,30 @@ Consumable::Consumable(std::string name, int effect, EffectType type) : BaseItem
 	}
 }
 
-// Конструктор по умолчанию
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 Consumable::Consumable() : BaseItem(), m_effect{ 0 }, m_type{ EffectType::HealthRestoration	} {
 	std::cout << "The consumable created: " << m_name << '\n';
 }
 
-// Деструктор
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Consumable::~Consumable() {
 	std::cout << "The consumable is destroyed: " << m_name << '\n';
 }
 
-// Выводит информацию об использовании предмета и его эффекте
+// Р’С‹РІРѕРґРёС‚ РёРЅС„РѕСЂРјР°С†РёСЋ РѕР± РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё РїСЂРµРґРјРµС‚Р° Рё РµРіРѕ СЌС„С„РµРєС‚Рµ
 void Consumable::Use() const {
 	std::cout << "You used the consumable: " << m_name << '\n';
 	std::cout << "Effect of the consumable: " << EffectTypeToString(m_type) << " " << m_effect << '\n';
 }
 
-// Формирует описание расходуемого предмета
+// Р¤РѕСЂРјРёСЂСѓРµС‚ РѕРїРёСЃР°РЅРёРµ СЂР°СЃС…РѕРґСѓРµРјРѕРіРѕ РїСЂРµРґРјРµС‚Р°
 std::string Consumable::Describe() const {
 	return "Consumable: " + m_name +
 		", effect: " + EffectTypeToString(m_type) +
 		", value: " + std::to_string(m_effect);
 }
 
-// Создаёт копию текущего объекта Consumable
+// РЎРѕР·РґР°С‘С‚ РєРѕРїРёСЋ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° Consumable
 std::unique_ptr<BaseItem> Consumable::Clone() const {
 	return std::make_unique<Consumable>(*this);
 }

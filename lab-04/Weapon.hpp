@@ -4,7 +4,7 @@
 
 #include "BaseItem.hpp"
 
-// Класс оружия
+// РљР»Р°СЃСЃ РѕСЂСѓР¶РёСЏ
 class Weapon : public BaseItem {
 private:
 	int m_damage;
@@ -15,10 +15,10 @@ public:
 
 	~Weapon() override;
 
-	// Реализация использования и описания оружия
+	// Р РµР°Р»РёР·Р°С†РёСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ Рё РѕРїРёСЃР°РЅРёСЏ РѕСЂСѓР¶РёСЏ
 	void Use() const override;
 	std::string Describe() const override;
 
-	// Создаёт копию объекта Weapon и возвращает её через указатель на базовый класс BaseItem
+	// РЎРѕР·РґР°С‘С‚ РєРѕРїРёСЋ РѕР±СЉРµРєС‚Р° Weapon Рё РІРѕР·РІСЂР°С‰Р°РµС‚ РµС‘ С‡РµСЂРµР· СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Р±Р°Р·РѕРІС‹Р№ РєР»Р°СЃСЃ BaseItem
 	std::unique_ptr<BaseItem> Clone() const override;
 };

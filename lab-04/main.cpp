@@ -8,27 +8,27 @@
 #include "QuestItem.hpp"
 #include "Enemy.hpp"
 
-// Структура для демонстрации поверхностного копирования
+// РЎС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РґРµРјРѕРЅСЃС‚СЂР°С†РёРё РїРѕРІРµСЂС…РЅРѕСЃС‚РЅРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 struct ShallowCopyDemo {
     std::shared_ptr<EnemyStats> stats;
 };
 
 int main() {
-    // Массив предметов разных дочерних классов
+    // РњР°СЃСЃРёРІ РїСЂРµРґРјРµС‚РѕРІ СЂР°Р·РЅС‹С… РґРѕС‡РµСЂРЅРёС… РєР»Р°СЃСЃРѕРІ
     std::unique_ptr<BaseItem> items[] = {
         std::make_unique<Weapon>("Sword", 20),
         std::make_unique<Consumable>( "Potion", 50, EffectType::HealthRestoration),
         std::make_unique<QuestItem>("Ancient key")
     };
 
-    // Демонстрация полиморфизма
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РїРѕР»РёРјРѕСЂС„РёР·РјР°
     std::cout << "\n=== Item descriptions ===\n";
 
     for (const auto& item : items) {
         std::cout << item->Describe() << '\n';
     }
 
-    // Демонстрация виртуального метода Clone()
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕРіРѕ РјРµС‚РѕРґР° Clone()
     std::cout << "\n=== Cloning ===\n";
 
     for (const auto& item : items) {
@@ -38,24 +38,24 @@ int main() {
         std::cout << "Copy: " << copy->Describe() << '\n';
     }
 
-    // Демонстрация основных операций со строками.
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РѕСЃРЅРѕРІРЅС‹С… РѕРїРµСЂР°С†РёР№ СЃРѕ СЃС‚СЂРѕРєР°РјРё.
     std::cout << "\n=== String operations ===\n";
 
     std::string itemName = "Ancient key";
 
-    // Конкатенация
+    // РљРѕРЅРєР°С‚РµРЅР°С†РёСЏ
     std::string description = "Quest item: " + itemName;
     std::cout << "Concatenation: " << description << '\n';
 
-    // Поиск
+    // РџРѕРёСЃРє
     std::size_t position = itemName.find("key");
     std::cout << "Find: " << position << '\n';
 
-    // Выделение подстроки
+    // Р’С‹РґРµР»РµРЅРёРµ РїРѕРґСЃС‚СЂРѕРєРё
     std::string part = itemName.substr(0, 7);
     std::cout << "Substring: " << part << '\n';
 
-    // Сравнение
+    // РЎСЂР°РІРЅРµРЅРёРµ
     std::string anotherName = "Ancient key";
 
     if (itemName == anotherName) {
@@ -65,7 +65,7 @@ int main() {
         std::cout << "Names are different\n";
     }
 
-    // Демонстрация поверхностного копирования
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РїРѕРІРµСЂС…РЅРѕСЃС‚РЅРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
     std::cout << "\n=== Shallow copy ===\n";
 
     auto stats = std::make_shared<EnemyStats>();
@@ -80,7 +80,7 @@ int main() {
 
     std::cout << "Copy damage: " << copy.stats->damage << '\n';
 
-    // Демонстрация глубокого копирования
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РіР»СѓР±РѕРєРѕРіРѕ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
     std::cout << "\n=== Deep copy ===\n";
 
     auto enemyStats = std::make_shared<EnemyStats>();
@@ -97,19 +97,19 @@ int main() {
 
     std::cout << "Copy damage: " << enemyCopy.GetDamage() << '\n';
 
-    // Демонстрация передачи текущего объекта инспектору
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РїРµСЂРµРґР°С‡Рё С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° РёРЅСЃРїРµРєС‚РѕСЂСѓ
     EnemyInspector inspector;
     enemyOriginal.SendTo(inspector);
 
-    // Демонстрация конструктора по умолчанию
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
     std::cout << "\n=== Default constructor ===\n";
     Enemy defaultEnemy;
 
-    // Демонстрация конструктора перемещения
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РїРµСЂРµРјРµС‰РµРЅРёСЏ
     std::cout << "\n=== Move constructor ===\n";
     Enemy movedEnemy = std::move(enemyCopy);
 
-    // Демонстрация оператора копирующего присваивания.
+    // Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РѕРїРµСЂР°С‚РѕСЂР° РєРѕРїРёСЂСѓСЋС‰РµРіРѕ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ.
     std::cout << "\n=== Copy assignment ===\n";
 
     Enemy assignedEnemy;

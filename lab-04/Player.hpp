@@ -6,7 +6,7 @@
 #include "Inventory.hpp"
 #include "BaseItem.hpp"
 
-// Класс игрового персонажа
+// РљР»Р°СЃСЃ РёРіСЂРѕРІРѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°
 class Player {
 private:
     std::string m_name;
@@ -17,8 +17,8 @@ public:
     Player(std::string name, int health, int inventoryCapacity);
     ~Player();
 
-    void TakeDamage(int damage);    // Уменьшает здоровье персонажа
-    void Heal(int heal);            // Восстанавливает здоровье персонажа
-    void AddItem(const std::shared_ptr<BaseItem>& item);     // Добавляет предмет в инвентарь персонажа
-    void ShowInventory() const;     // Выводит содержимое инвентаря
+    void TakeDamage(int damage);    // РЈРјРµРЅСЊС€Р°РµС‚ Р·РґРѕСЂРѕРІСЊРµ РїРµСЂСЃРѕРЅР°Р¶Р°
+    void Heal(int heal);            // Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РґРѕСЂРѕРІСЊРµ РїРµСЂСЃРѕРЅР°Р¶Р°
+    void AddItem(const std::shared_ptr<BaseItem>& item);     // Р”РѕР±Р°РІР»СЏРµС‚ РїСЂРµРґРјРµС‚ РІ РёРЅРІРµРЅС‚Р°СЂСЊ РїРµСЂСЃРѕРЅР°Р¶Р°
+    void ShowInventory() const;     // Р’С‹РІРѕРґРёС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РёРЅРІРµРЅС‚Р°СЂСЏ
 };

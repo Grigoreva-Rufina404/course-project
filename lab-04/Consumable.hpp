@@ -5,15 +5,15 @@
 #include "BaseItem.hpp"
 
 enum class EffectType {
-	HealthRestoration,	// Восстановление здоровья
-	DealDamage,			// Нанесение урона
-	IncreaseAttack,		// Повышение атаки
-	DecreaseAttack,		// Понижение атаки
+	HealthRestoration,	// Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ Р·РґРѕСЂРѕРІСЊСЏ
+	DealDamage,			// РќР°РЅРµСЃРµРЅРёРµ СѓСЂРѕРЅР°
+	IncreaseAttack,		// РџРѕРІС‹С€РµРЅРёРµ Р°С‚Р°РєРё
+	DecreaseAttack,		// РџРѕРЅРёР¶РµРЅРёРµ Р°С‚Р°РєРё
 };
 
 std::string EffectTypeToString(EffectType type);
 
-// Класс расходуемого предмета
+// РљР»Р°СЃСЃ СЂР°СЃС…РѕРґСѓРµРјРѕРіРѕ РїСЂРµРґРјРµС‚Р°
 class Consumable : public BaseItem {
 private:
 	int m_effect;
@@ -25,11 +25,11 @@ public:
 
 	~Consumable() override;
 
-	// Реализация использования и описания расходуемого предмета
+	// Р РµР°Р»РёР·Р°С†РёСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ Рё РѕРїРёСЃР°РЅРёСЏ СЂР°СЃС…РѕРґСѓРµРјРѕРіРѕ РїСЂРµРґРјРµС‚Р°
 	void Use() const override;
 	std::string Describe() const override;
 
-	// Создаёт копию текущего объекта Consumable
+	// РЎРѕР·РґР°С‘С‚ РєРѕРїРёСЋ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° Consumable
 	std::unique_ptr<BaseItem> Clone() const override;
 };
 

@@ -3,7 +3,7 @@
 
 #include "Weapon.hpp"
 
-// Конструктор с параметрами
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Weapon::Weapon(std::string name, int damage) : BaseItem(std::move(name)), m_damage{ damage } {
 	std::cout << "The weapon created: " << m_name << '\n';
 
@@ -13,29 +13,29 @@ Weapon::Weapon(std::string name, int damage) : BaseItem(std::move(name)), m_dama
 	}
 }
 
-// Конструктор по умолчанию
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 Weapon::Weapon() : BaseItem(), m_damage{ 5 } {
 	std::cout << "The weapon created: " << m_name << '\n';
 }
 
-// Деструктор
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Weapon::~Weapon() {
 	std::cout << "The weapon is destroyed: " << m_name << '\n';
 }
 
-// Выводит информацию об использовании оружия и наносимом уроне
+// Р’С‹РІРѕРґРёС‚ РёРЅС„РѕСЂРјР°С†РёСЋ РѕР± РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё РѕСЂСѓР¶РёСЏ Рё РЅР°РЅРѕСЃРёРјРѕРј СѓСЂРѕРЅРµ
 void Weapon::Use() const {
 	std::cout << "You used the weapon: " << m_name << '\n';
 	std::cout << "Damage has been caused: " << m_damage << '\n';
 }
 
-// Формирует описание оружия
+// Р¤РѕСЂРјРёСЂСѓРµС‚ РѕРїРёСЃР°РЅРёРµ РѕСЂСѓР¶РёСЏ
 std::string Weapon::Describe() const {
 	return BaseItem::Describe() +
 		", damage: " + std::to_string(m_damage);
 }
 
-// Создаёт полную копию текущего объекта Weapon
+// РЎРѕР·РґР°С‘С‚ РїРѕР»РЅСѓСЋ РєРѕРїРёСЋ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° Weapon
 std::unique_ptr<BaseItem> Weapon::Clone() const {
 	return std::make_unique<Weapon>(*this);
 }

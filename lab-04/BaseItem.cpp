@@ -3,24 +3,24 @@
 
 #include "BaseItem.hpp"
 
-// Конструктор с параметрами
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 BaseItem::BaseItem(std::string name)
 	: m_name{ std::move(name) } {
 	std::cout << "The object created: " << m_name << '\n';
 }
 
-// Конструктор по умолчанию
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 BaseItem::BaseItem()
     : m_name{ "Default object" } {
     std::cout << "The object created: " << m_name << '\n';
 }
 
-// Возвращает текстовое описание предмета
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РµРєСЃС‚РѕРІРѕРµ РѕРїРёСЃР°РЅРёРµ РїСЂРµРґРјРµС‚Р°
 std::string BaseItem::Describe() const {
 	return "Item: " + m_name;
 }
 
-// Виртуальный деструктор базового класса
+// Р’РёСЂС‚СѓР°Р»СЊРЅС‹Р№ РґРµСЃС‚СЂСѓРєС‚РѕСЂ Р±Р°Р·РѕРІРѕРіРѕ РєР»Р°СЃСЃР°
 BaseItem::~BaseItem() {
 	std::cout << "The object is destroyed: " << m_name << '\n';
 }

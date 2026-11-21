@@ -5,7 +5,7 @@
 
 int Enemy::m_createdCount = 0;
 
-// Конструктор с параметрами
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 Enemy::Enemy(std::string name, int health, const std::shared_ptr<EnemyStats>& stats)
 	: m_name{ std::move(name) }
 	, m_health{ health }
@@ -16,7 +16,7 @@ Enemy::Enemy(std::string name, int health, const std::shared_ptr<EnemyStats>& st
 	std::cout << "The enemy created: " << m_name << '\n';
 }
 
-// Конструктор по умолчанию
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 Enemy::Enemy()
 	: m_name{ "Default enemy" }
 	, m_health{ 100 }
@@ -27,7 +27,7 @@ Enemy::Enemy()
 	std::cout << "The enemy created: " << m_name << '\n';
 }
 
-// Конструктор копирования
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 Enemy::Enemy(const Enemy& other)
 	: m_name{ other.m_name }
 	, m_health{ other.m_health }
@@ -38,7 +38,7 @@ Enemy::Enemy(const Enemy& other)
 	std::cout << "The enemy copied: " << m_name << '\n';
 }
 
-// Конструктор перемещения
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ
 Enemy::Enemy(Enemy&& other) noexcept
 	: m_name{ std::move(other.m_name) }
 	, m_health{ other.m_health }
@@ -49,7 +49,7 @@ Enemy::Enemy(Enemy&& other) noexcept
 	std::cout << "The enemy moved: " << m_name << '\n';
 }
 
-// Оператор копирующего присваивания
+// РћРїРµСЂР°С‚РѕСЂ РєРѕРїРёСЂСѓСЋС‰РµРіРѕ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 Enemy& Enemy :: operator = (const Enemy& other) {
 	if (this == &other) {
 		return *this;
@@ -64,32 +64,32 @@ Enemy& Enemy :: operator = (const Enemy& other) {
 	return *this;
 }
 
-// Изменяет значение урона противника
+// РР·РјРµРЅСЏРµС‚ Р·РЅР°С‡РµРЅРёРµ СѓСЂРѕРЅР° РїСЂРѕС‚РёРІРЅРёРєР°
 void Enemy::SetDamage(int damage){
 	m_stats->damage = damage;
 }
 
-// Возвращает значение урона противника
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СѓСЂРѕРЅР° РїСЂРѕС‚РёРІРЅРёРєР°
 int Enemy::GetDamage() const{
 	return m_stats->damage;
 }
 
-// Передаёт указатель на текущий объект инспектору
+// РџРµСЂРµРґР°С‘С‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСѓС‰РёР№ РѕР±СЉРµРєС‚ РёРЅСЃРїРµРєС‚РѕСЂСѓ
 void Enemy::SendTo(const EnemyInspector& inspector) const {
 	inspector.Inspect(this);
 }
 
-// Получает информацию о переданном противнике
+// РџРѕР»СѓС‡Р°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїРµСЂРµРґР°РЅРЅРѕРј РїСЂРѕС‚РёРІРЅРёРєРµ
 void EnemyInspector::Inspect(const Enemy* enemy) const {
 	std::cout << "Enemy received. Damage: " << enemy->GetDamage() << '\n';
 }
 
-// Возвращает значение статического счётчика
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СЃС‚Р°С‚РёС‡РµСЃРєРѕРіРѕ СЃС‡С‘С‚С‡РёРєР°
 int Enemy::GetCreatedCount() {
 	return m_createdCount;
 }
 
-// Деструктор
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Enemy::~Enemy(){
 		std::cout << "The enemy is destroyed: " << m_name << '\n';
 }

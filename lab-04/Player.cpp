@@ -3,7 +3,7 @@
 
 #include "Player.hpp"
 
-// Конструктор персонажа
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂСЃРѕРЅР°Р¶Р°
 Player::Player(std::string name, int health, int inventoryCapacity)
     : m_name{ std::move(name) }
     , m_health{ health }
@@ -20,12 +20,12 @@ Player::Player(std::string name, int health, int inventoryCapacity)
     }
 }
 
-// Деструктор
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Player::~Player() {
     std::cout << "The player has been removed: " << m_name << '\n';
 }
 
-// Уменьшает здоровье персонажа
+// РЈРјРµРЅСЊС€Р°РµС‚ Р·РґРѕСЂРѕРІСЊРµ РїРµСЂСЃРѕРЅР°Р¶Р°
 void Player::TakeDamage(int damage) {
     m_health = m_health - damage;
 
@@ -38,7 +38,7 @@ void Player::TakeDamage(int damage) {
     std::cout << "Player health: " << m_health << '\n';
 }
 
-// Восстанавливает здоровье персонажа
+// Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РґРѕСЂРѕРІСЊРµ РїРµСЂСЃРѕРЅР°Р¶Р°
 void Player::Heal(int heal){
     m_health = m_health + heal;
 
@@ -51,12 +51,12 @@ void Player::Heal(int heal){
     std::cout << "Player health: " << m_health << '\n';
 }
 
-// Передаёт предмет инвентарю для добавления
+// РџРµСЂРµРґР°С‘С‚ РїСЂРµРґРјРµС‚ РёРЅРІРµРЅС‚Р°СЂСЋ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ
 void Player::AddItem(const std::shared_ptr<BaseItem>& item){
     m_inventory.AddItem(item);
 }
 
-// Передаёт инвентарю команду вывести его содержимое
+// РџРµСЂРµРґР°С‘С‚ РёРЅРІРµРЅС‚Р°СЂСЋ РєРѕРјР°РЅРґСѓ РІС‹РІРµСЃС‚Рё РµРіРѕ СЃРѕРґРµСЂР¶РёРјРѕРµ
 void Player::ShowInventory() const{
     m_inventory.ShowInventory();
 }

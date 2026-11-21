@@ -3,18 +3,18 @@
 #include <string>
 #include <memory>
 
-// Предварительные объявления классов
+// РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Рµ РѕР±СЉСЏРІР»РµРЅРёСЏ РєР»Р°СЃСЃРѕРІ
 class Enemy;
 class EnemyInspector;
 
-// Структура с характеристиками противника
+// РЎС‚СЂСѓРєС‚СѓСЂР° СЃ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєР°РјРё РїСЂРѕС‚РёРІРЅРёРєР°
 struct EnemyStats {
 	int damage{ 0 };
 	int defense{ 0 };
 	const std::string description{ "Default enemy" };
 };
 
-// Класс противника
+// РљР»Р°СЃСЃ РїСЂРѕС‚РёРІРЅРёРєР°
 class Enemy {
 private:
 	std::string m_name;
@@ -27,15 +27,15 @@ public:
 	Enemy(std::string name, int health, const std::shared_ptr<EnemyStats> &stats);
 	Enemy();
 
-	// Конструктор копирования и оператор копирующего присваивания
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ Рё РѕРїРµСЂР°С‚РѕСЂ РєРѕРїРёСЂСѓСЋС‰РµРіРѕ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	Enemy(const Enemy& other);
 	Enemy& operator = (const Enemy& other);
 
-	// Конструктор перемещения и оператор перемещающего присваивания
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРµСЂРµРјРµС‰РµРЅРёСЏ Рё РѕРїРµСЂР°С‚РѕСЂ РїРµСЂРµРјРµС‰Р°СЋС‰РµРіРѕ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	Enemy(Enemy&& other) noexcept;
 	Enemy& operator=(Enemy&& other) noexcept = default;
 
-	// Изменяет и возвращает значение урона противника
+	// РР·РјРµРЅСЏРµС‚ Рё РІРѕР·РІСЂР°С‰Р°РµС‚ Р·РЅР°С‡РµРЅРёРµ СѓСЂРѕРЅР° РїСЂРѕС‚РёРІРЅРёРєР°
 	void SetDamage(int damage);
 	int GetDamage() const;
 
@@ -46,7 +46,7 @@ public:
 	~Enemy();
 };
 
-// Класс для получения информации о противнике
+// РљР»Р°СЃСЃ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїСЂРѕС‚РёРІРЅРёРєРµ
 class EnemyInspector {
 public:
 	void Inspect(const Enemy* enemy) const;

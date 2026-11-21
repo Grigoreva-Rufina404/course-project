@@ -3,27 +3,27 @@
 
 #include "QuestItem.hpp"
 
-// Конструктор с параметрами
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 QuestItem::QuestItem(std::string name) : BaseItem(std::move(name)) {
 	std::cout << "The quest item created: " << m_name << '\n';
 }
 
-// Конструктор по умолчанию
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 QuestItem::QuestItem() : BaseItem() {
 	std::cout << "The quest item created: " << m_name << '\n';
 }
 
-// Деструктор
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 QuestItem::~QuestItem() {
 	std::cout << "The quest item is destroyed: " << m_name << '\n';
 }
 
-// Выводит сообщение об использовании сюжетного предмета
+// Р’С‹РІРѕРґРёС‚ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СЃСЋР¶РµС‚РЅРѕРіРѕ РїСЂРµРґРјРµС‚Р°
 void QuestItem::Use() const {
 	std::cout << "You used the quest item: " << m_name << '\n';
 }
 
-// Создаёт копию текущего объекта QuestItem
+// РЎРѕР·РґР°С‘С‚ РєРѕРїРёСЋ С‚РµРєСѓС‰РµРіРѕ РѕР±СЉРµРєС‚Р° QuestItem
 std::unique_ptr<BaseItem> QuestItem::Clone() const {
 	return std::make_unique<QuestItem>(*this);
 }

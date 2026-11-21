@@ -7,7 +7,7 @@
 // Класс сюжетного предмета
 class QuestItem final: public BaseItem {
 public:
-	QuestItem(std::string name);
+	explicit QuestItem(std::string name);
 	QuestItem();
 
 	~QuestItem() override;

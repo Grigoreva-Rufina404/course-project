@@ -12,7 +12,7 @@ protected:
 	BaseItem(const BaseItem& other) = default;
 
 public:
-	BaseItem(std::string name);
+	explicit BaseItem(std::string name);
 	BaseItem();
 
 	virtual ~BaseItem();

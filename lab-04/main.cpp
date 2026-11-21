@@ -28,6 +28,13 @@ int main() {
         std::cout << item->Describe() << '\n';
     }
 
+    // Демонстрация чисто виртуального метода Use()
+    std::cout << "\n=== Using items ===\n";
+
+    for (const auto& item : items) {
+        item->Use();
+    }
+
     // Демонстрация виртуального метода Clone()
     std::cout << "\n=== Cloning ===\n";
 

@@ -10,6 +10,11 @@ public:
 	explicit QuestItem(std::string name);
 	QuestItem();
 
+	QuestItem(const QuestItem& other) = default;
+	QuestItem(QuestItem&& other) noexcept = default;
+	QuestItem& operator=(const QuestItem& other) = default;
+	QuestItem& operator=(QuestItem&& other) noexcept = default;
+
 	~QuestItem() override;
 
 	// Реализация использования сюжетного предмета

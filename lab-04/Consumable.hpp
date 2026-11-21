@@ -23,6 +23,11 @@ public:
 	Consumable(std::string name, int effect, EffectType type);
 	Consumable();
 
+	Consumable(const Consumable& other) = default;
+	Consumable(Consumable&& other) noexcept = default;
+	Consumable& operator=(const Consumable& other) = default;
+	Consumable& operator=(Consumable&& other) noexcept = default;
+
 	~Consumable() override;
 
 	// Реализация использования и описания расходуемого предмета

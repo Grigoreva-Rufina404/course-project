@@ -13,6 +13,11 @@ public:
 	Weapon(std::string name, int damage);
 	Weapon();
 
+	Weapon(const Weapon& other) = default;
+	Weapon(Weapon&& other) noexcept = default;
+	Weapon& operator=(const Weapon& other) = default;
+	Weapon& operator=(Weapon&& other) noexcept = default;
+
 	~Weapon() override;
 
 	// Реализация использования и описания оружия

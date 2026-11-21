@@ -10,6 +10,9 @@ protected:
 
 	// Конструктор копирования доступен наследникам
 	BaseItem(const BaseItem& other) = default;
+	BaseItem(BaseItem&& other) noexcept = default;
+	BaseItem& operator=(const BaseItem& other) = default;
+	BaseItem& operator=(BaseItem&& other) noexcept = default;
 
 public:
 	explicit BaseItem(std::string name);

@@ -1,0 +1,6 @@
+enum EffectType {
+    HEALTH_RESTORATION,
+    DEAL_DAMAGE,
+    INCREASE_ATTACK,
+    DECREASE_ATTACK
+}
